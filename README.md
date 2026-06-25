@@ -1,114 +1,64 @@
 # OPEN CODE Mobile 🌊
 
-> AI Coding Agent for Android — Liquid Glass UI
+> AI Coding Agent for Android — Liquid Glass Edition
 
 <p align="center">
   <img src="src/assets/icons/icon.svg" width="200" alt="OPEN CODE Mobile">
 </p>
 
 <p align="center">
-  <strong>The most beautiful AI coding assistant for your phone.</strong><br>
-  Liquid Glass interface • iOS 27‑style animations • Multi‑model AI
+  <strong>The most powerful AI coding assistant for your phone.</strong><br>
+  Liquid Glass UI • Multi-Model AI • Privacy First
 </p>
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🌊 **Liquid Glass UI** | Stunning glass morphism interface with floating particles |
-| 🤖 **Multi‑Model AI** | GPT‑4, GPT‑3.5, Claude 3, Gemini — pick your engine |
-| ✨ **iOS 27 Animations** | Buttery‑smooth spring animations, typing indicators, message reveals |
-| 🎨 **3 Themes** | Dark, Light, Ocean — each with its own Liquid Glass palette |
-| 📱 **Mobile Native** | Built with Capacitor — real APK, not a web wrapper |
-| 🔒 **Privacy First** | Your API key stays on your device. No cloud, no tracking |
-| ⚡ **Code Highlighting** | In‑message syntax‑highlighted code blocks with one‑tap copy |
-| 🎯 **Zero Setup** | Works in demo mode without an API key |
+- 🌊 **Liquid Glass Interface** — Stunning glass morphism design with floating particles and smooth animations
+- 🤖 **Multi-Model AI** — GPT-4o, GPT-4, GPT-4o Mini, Claude 3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku, Gemini 2.0 Flash, Gemini 2.0 Pro, Gemini 2.0 Ultra
+- 🔐 **Sign in with Google** — Like ChatGPT, with profile management
+- ⚡ **Real AI Integration** — Connect your own API keys for OpenAI, Anthropic, and Google
+- 🎨 **3 Beautiful Themes** — Dark, Light, Ocean — each with Liquid Glass styling
+- 💬 **Smart Code Blocks** — Syntax-highlighted code with one-tap copy
+- 📱 **Mobile Native** — Built for Android, optimized for touch
+- 🔒 **Privacy First** — Your API keys stay on your device
 
-## 🚀 Quick Start
+## 📲 Download
 
-### Download APK
+Download the latest APK from the [**Releases**](https://github.com/Il103/OPEN-CODE-Mobile/releases) page.
 
-Grab the latest APK from the [**Releases**](https://github.com/Il103/OPEN-CODE-Mobile/releases) page.
+## 🤖 Supported Models
 
-### Build yourself
+| Model | Provider | Type |
+|-------|----------|------|
+| Gemini 2.0 Flash | Google | Free |
+| Gemini 2.0 Flash-Lite | Google | Free |
+| GPT-4o Mini | OpenAI | Free |
+| Claude 3 Haiku | Anthropic | Free |
+| **GPT-4o** | **OpenAI** | **Premium** |
+| **GPT-4 Turbo** | **OpenAI** | **Premium** |
+| **GPT-4** | **OpenAI** | **Premium** |
+| **Claude 3.5 Sonnet** | **Anthropic** | **Premium** |
+| **Claude 3 Opus** | **Anthropic** | **Premium** |
+| **Gemini 2.0 Pro** | **Google** | **Premium** |
+| **Gemini 2.0 Ultra** | **Google** | **Premium** |
 
-```bash
-# 1. Clone
-git clone https://github.com/Il103/OPEN-CODE-Mobile.git
-cd OPEN-CODE-Mobile
+## 🎨 Liquid Glass Design
 
-# 2. Install
-npm install
+The entire interface is built around **glass morphism** — frosted glass effects, animated gradients, floating particles, and spring-based animations that make every interaction feel fluid and premium.
 
-# 3. Add Android platform
-npx cap init "OPEN CODE Mobile" "com.opencode.mobile" --webDir src
-npx cap add android
+## 🔧 Setup
 
-# 4. Sync & Build
-npx cap sync android
-cd android && ./gradlew assembleDebug
-
-# APK → android/app/build/outputs/apk/debug/app-debug.apk
-```
-
-## 🛠️ Tech Stack
-
-- **Frontend** — HTML / CSS / JavaScript (vanilla, zero framework weight)
-- **Animations** — CSS `backdrop-filter`, Web Animations API, spring easing
-- **Mobile** — [Capacitor](https://capacitorjs.com) (native APK wrapper)
-- **AI APIs** — OpenAI / Anthropic / Google Gemini (bring your own key)
-
-## 🎨 Liquid Glass
-
-The UI is built around **glass morphism** — a frosted‑glass effect powered by
-`backdrop-filter: blur()` and semi‑transparent backgrounds with subtle borders.
-
-Floating particles drift across the screen, animated gradients shift in the
-background, and every interaction — sending a message, opening the menu,
-receiving a reply — triggers a buttery‑smooth spring animation.
-
-## 🤖 AI Models
-
-Configure your preferred model in Settings:
-
-| Model | Provider | API Endpoint |
-|-------|----------|-------------|
-| GPT‑4 | OpenAI | `api.openai.com` |
-| GPT‑3.5 | OpenAI | `api.openai.com` |
-| Claude 3 | Anthropic | `api.anthropic.com` |
-| Gemini | Google | `generativelanguage.googleapis.com` |
-
-> **Demo mode** works without any API key — perfect for previewing the UI.
-
-## 📦 Build with GitHub Actions
-
-Every push triggers an automated build. The debug APK is available as a
-build artifact. To create a **Release**:
-
-1. Go to **Actions** → **Build OPEN CODE Mobile APK**
-2. Click **Run workflow**
-3. Set **Create a GitHub Release** → `true`
-4. Optionally set a version tag (e.g. `v1.0.1`)
-
-## 🔐 Signing (Release Builds)
-
-For release APKs, add these **repository secrets**:
-
-| Secret | Description |
-|--------|-------------|
-| `ANDROID_KEYSTORE` | Base64‑encoded keystore file |
-| `KEYSTORE_PASSWORD` | Keystore password |
-| `KEY_ALIAS` | Key alias |
-| `KEY_PASSWORD` | Key password |
-
-Without these, the workflow builds an **unsigned debug APK** which is
-perfectly fine for personal use.
+1. Download and install the APK
+2. Sign in with Google or create an account
+3. Add your API keys in Settings (OpenAI / Anthropic / Google)
+4. Select your preferred model
+5. Start coding!
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/Il103">Il103</a><br>
+  Made with ❤️ by Il103<br>
   Powered by <a href="https://opencode.ai">OPEN CODE</a>
 </p>

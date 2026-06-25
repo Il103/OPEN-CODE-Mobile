@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0a0a1a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>OPEN CODE Mobile</title>
+  <title>OPEN CODE</title>
   <link rel="stylesheet" href="css/liquid-glass.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/style.css">
@@ -16,48 +16,12 @@
     <div id="glass-particles"></div>
     <div id="gradient-bg"></div>
 
-    <header id="header">
-      <div class="header-glass">
-        <div class="header-left">
-          <div class="app-icon">
-            <svg width="28" height="28" viewBox="0 0 234 42" fill="none">
-              <path d="M18 30H6V18H18V30Z" fill="#CFCECD"/>
-              <path d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z" fill="#656363"/>
-              <path d="M48 30H36V18H48V30Z" fill="#CFCECD"/>
-              <path d="M36 30H48V12H36V30ZM54 36H36V42H30V6H54V36Z" fill="#656363"/>
-              <path d="M84 24V30H66V24H84Z" fill="#CFCECD"/>
-              <path d="M84 24H66V30H84V36H60V6H84V24ZM66 18H78V12H66V18Z" fill="#656363"/>
-              <path d="M108 36H96V18H108V36Z" fill="#CFCECD"/>
-              <path d="M108 12H96V36H90V6H108V12ZM114 36H108V12H114V36Z" fill="#656363"/>
-              <path d="M144 30H126V18H144V30Z" fill="#CFCECD"/>
-              <path d="M144 12H126V30H144V36H120V6H144V12Z" fill="#211E1E"/>
-              <path d="M168 30H156V18H168V30Z" fill="#CFCECD"/>
-              <path d="M168 12H156V30H168V12ZM174 36H150V6H174V36Z" fill="#211E1E"/>
-              <path d="M198 30H186V18H198V30Z" fill="#CFCECD"/>
-              <path d="M198 12H186V30H198V12ZM204 36H180V6H198V0H204V36Z" fill="#211E1E"/>
-              <path d="M234 24V30H216V24H234Z" fill="#CFCECD"/>
-              <path d="M216 12V18H228V12H216ZM234 24H216V30H234V36H210V6H234V24Z" fill="#211E1E"/>
-            </svg>
-          </div>
-          <div class="header-info">
-            <h1 class="app-title">OPEN CODE</h1>
-            <span class="app-subtitle">Mobile</span>
-          </div>
-        </div>
-        <div class="header-right">
-          <div class="status-dot online"></div>
-          <button id="menuBtn" class="glass-btn" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <main id="chat-container">
-      <div id="welcome-screen">
-        <div class="welcome-glass">
-          <div class="welcome-icon">
-            <svg width="64" height="64" viewBox="0 0 234 42" fill="none">
+    <!-- ===== AUTH SCREEN ===== -->
+    <div id="auth-screen" class="screen active">
+      <div class="auth-container">
+        <div class="auth-logo">
+          <div class="auth-logo-icon">
+            <svg width="80" height="80" viewBox="0 0 234 42" fill="none">
               <path d="M18 30H6V18H18V30Z" fill="#CFCECD"/>
               <path d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z" fill="#656363"/>
               <path d="M48 30H36V18H48V30Z" fill="#CFCECD"/>
@@ -76,82 +40,321 @@
               <path d="M216 12V18H228V12H216ZM234 24H216V30H234V36H210V6H234V24Z" fill="#CFCECD"/>
             </svg>
           </div>
-          <h2 class="welcome-title">Welcome to OPEN CODE Mobile</h2>
-          <p class="welcome-text">Your AI coding agent, now on mobile.<br>Powered by Liquid Glass.</p>
-          <div class="welcome-features">
-            <div class="feature-item"><span class="feature-icon">&#9889;</span> Multi-Model AI</div>
-            <div class="feature-item"><span class="feature-icon">&#128187;</span> Code Assistant</div>
-            <div class="feature-item"><span class="feature-icon">&#128274;</span> Privacy First</div>
+          <div class="auth-title-group">
+            <h1 class="auth-title">OPEN CODE</h1>
+            <p class="auth-subtitle">AI Coding Agent</p>
           </div>
         </div>
-      </div>
-      <div id="messages"></div>
-    </main>
 
-    <div id="typing-indicator" class="typing-hidden">
-      <div class="typing-glass">
-        <div class="typing-dots">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="auth-glass" id="authForm">
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="signin">Sign In</button>
+            <button class="auth-tab" data-tab="signup">Sign Up</button>
+          </div>
+
+          <!-- Sign In Form -->
+          <div class="auth-form active" id="signin-form">
+            <div class="auth-input-group">
+              <div class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <input type="email" class="auth-input" placeholder="Email address" id="signin-email">
+            </div>
+            <div class="auth-input-group">
+              <div class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </div>
+              <input type="password" class="auth-input" placeholder="Password" id="signin-password">
+            </div>
+            <button class="auth-btn primary" id="signin-btn">Sign In</button>
+            <div class="auth-divider"><span>or continue with</span></div>
+            <button class="auth-btn google" id="googleSignIn">
+              <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Continue with Google
+            </button>
+          </div>
+
+          <!-- Sign Up Form -->
+          <div class="auth-form" id="signup-form">
+            <div class="auth-input-group">
+              <div class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <input type="text" class="auth-input" placeholder="Full name" id="signup-name">
+            </div>
+            <div class="auth-input-group">
+              <div class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <input type="email" class="auth-input" placeholder="Email address" id="signup-email">
+            </div>
+            <div class="auth-input-group">
+              <div class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </div>
+              <input type="password" class="auth-input" placeholder="Create password" id="signup-password">
+            </div>
+            <button class="auth-btn primary" id="signup-btn">Create Account</button>
+            <div class="auth-divider"><span>or continue with</span></div>
+            <button class="auth-btn google" id="googleSignUp">
+              <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Continue with Google
+            </button>
+          </div>
+
+          <p class="auth-terms">By continuing, you agree to our Terms of Service and Privacy Policy.</p>
         </div>
-        <span class="typing-text">AI is thinking...</span>
       </div>
     </div>
 
-    <footer id="input-bar">
-      <div class="input-glass">
-        <button id="attachBtn" class="glass-icon-btn" aria-label="Attach">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
-          </svg>
-        </button>
-        <div class="input-wrapper">
-          <textarea id="messageInput" rows="1" placeholder="Message OPEN CODE..." autocomplete="off"></textarea>
-        </div>
-        <button id="sendBtn" class="glass-send-btn" aria-label="Send">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-          </svg>
-        </button>
-      </div>
-    </footer>
-
-    <div id="settings-panel" class="panel-hidden">
-      <div class="panel-backdrop" id="panelBackdrop"></div>
-      <div class="panel-glass">
-        <div class="panel-header">
-          <h2>Settings</h2>
-          <button id="closePanel" class="glass-icon-btn">&times;</button>
-        </div>
-        <div class="panel-body">
-          <div class="setting-group">
-            <label>AI Model</label>
-            <select id="modelSelect" class="glass-input">
-              <option value="gpt-4">GPT-4</option>
-              <option value="gpt-3.5">GPT-3.5</option>
-              <option value="claude-3">Claude 3</option>
-              <option value="gemini">Gemini</option>
-            </select>
-          </div>
-          <div class="setting-group">
-            <label>API Key</label>
-            <input type="password" id="apiKeyInput" class="glass-input" placeholder="Enter your API key">
-          </div>
-          <div class="setting-group">
-            <label>Theme</label>
-            <div class="theme-options">
-              <button class="theme-btn active" data-theme="dark">Dark</button>
-              <button class="theme-btn" data-theme="light">Light</button>
-              <button class="theme-btn" data-theme="ocean">Ocean</button>
+    <!-- ===== MAIN APP ===== -->
+    <div id="main-app" class="screen">
+      <!-- Chat Screen -->
+      <div id="chat-screen" class="tab-content active">
+        <header id="header">
+          <div class="header-glass">
+            <div class="header-left">
+              <div class="app-icon">
+                <svg width="24" height="24" viewBox="0 0 234 42" fill="none">
+                  <path d="M18 30H6V18H18V30Z" fill="#CFCECD"/>
+                  <path d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z" fill="#656363"/>
+                  <path d="M48 30H36V18H48V30Z" fill="#CFCECD"/>
+                  <path d="M36 30H48V12H36V30ZM54 36H36V42H30V6H54V36Z" fill="#656363"/>
+                  <path d="M84 24V30H66V24H84Z" fill="#CFCECD"/>
+                  <path d="M84 24H66V30H84V36H60V6H84V24ZM66 18H78V12H66V18Z" fill="#656363"/>
+                  <path d="M108 36H96V18H108V36Z" fill="#CFCECD"/>
+                  <path d="M108 12H96V36H90V6H108V12ZM114 36H108V12H114V36Z" fill="#656363"/>
+                  <path d="M144 30H126V18H144V30Z" fill="#CFCECD"/>
+                  <path d="M144 12H126V30H144V36H120V6H144V12Z" fill="#211E1E"/>
+                  <path d="M168 30H156V18H168V30Z" fill="#CFCECD"/>
+                  <path d="M168 12H156V30H168V12ZM174 36H150V6H174V36Z" fill="#211E1E"/>
+                  <path d="M198 30H186V18H198V30Z" fill="#CFCECD"/>
+                  <path d="M198 12H186V30H198V12ZM204 36H180V6H198V0H204V36Z" fill="#211E1E"/>
+                  <path d="M234 24V30H216V24H234Z" fill="#CFCECD"/>
+                  <path d="M216 12V18H228V12H216ZM234 24H216V30H234V36H210V6H234V24Z" fill="#211E1E"/>
+                </svg>
+              </div>
+              <div class="header-info">
+                <h1 class="app-title">OPEN CODE</h1>
+                <span class="app-subtitle model-badge" id="currentModelBadge">GPT-4o</span>
+              </div>
+            </div>
+            <div class="header-right">
+              <div class="status-dot online"></div>
+              <button id="profileBtn" class="glass-btn profile-btn" aria-label="Profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </button>
             </div>
           </div>
+        </header>
+
+        <main id="chat-container">
+          <div id="welcome-screen">
+            <div class="welcome-glass">
+              <div class="welcome-icon">
+                <svg width="72" height="72" viewBox="0 0 234 42" fill="none">
+                  <path d="M18 30H6V18H18V30Z" fill="#CFCECD"/>
+                  <path d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z" fill="#656363"/>
+                  <path d="M48 30H36V18H48V30Z" fill="#CFCECD"/>
+                  <path d="M36 30H48V12H36V30ZM54 36H36V42H30V6H54V36Z" fill="#656363"/>
+                  <path d="M84 24V30H66V24H84Z" fill="#CFCECD"/>
+                  <path d="M84 24H66V30H84V36H60V6H84V24ZM66 18H78V12H66V18Z" fill="#656363"/>
+                  <path d="M108 36H96V18H108V36Z" fill="#CFCECD"/>
+                  <path d="M108 12H96V36H90V6H108V12ZM114 36H108V12H114V36Z" fill="#656363"/>
+                  <path d="M144 30H126V18H144V30Z" fill="#CFCECD"/>
+                  <path d="M144 12H126V30H144V36H120V6H144V12Z" fill="#CFCECD"/>
+                  <path d="M168 30H156V18H168V30Z" fill="#CFCECD"/>
+                  <path d="M168 12H156V30H168V12ZM174 36H150V6H174V36Z" fill="#CFCECD"/>
+                  <path d="M198 30H186V18H198V30Z" fill="#CFCECD"/>
+                  <path d="M198 12H186V30H198V12ZM204 36H180V6H198V0H204V36Z" fill="#CFCECD"/>
+                  <path d="M234 24V30H216V24H234Z" fill="#CFCECD"/>
+                  <path d="M216 12V18H228V12H216ZM234 24H216V30H234V36H210V6H234V24Z" fill="#CFCECD"/>
+                </svg>
+              </div>
+              <h2 class="welcome-title">How can I help you code today?</h2>
+              <p class="welcome-text">Ask me anything about coding, debugging, or development.</p>
+              <div class="suggestion-chips" id="suggestionChips">
+                <button class="chip" data-text="Write a Python function to sort a list">Write a Python sorting function</button>
+                <button class="chip" data-text="Explain how React hooks work">Explain React hooks</button>
+                <button class="chip" data-text="Debug this error: TypeError: undefined is not an object">Help me debug an error</button>
+                <button class="chip" data-text="Create a REST API with Express.js">Build a REST API</button>
+              </div>
+            </div>
+          </div>
+          <div id="messages"></div>
+        </main>
+
+        <div id="typing-indicator" class="typing-hidden">
+          <div class="typing-glass">
+            <div class="typing-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <span class="typing-text" id="typingText">OPEN CODE is thinking...</span>
+          </div>
+        </div>
+
+        <footer id="input-bar">
+          <div class="input-glass">
+            <button id="attachBtn" class="glass-icon-btn" aria-label="Attach">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+            </button>
+            <div class="input-wrapper">
+              <textarea id="messageInput" rows="1" placeholder="Message OPEN CODE..." autocomplete="off"></textarea>
+            </div>
+            <button id="sendBtn" class="glass-send-btn" aria-label="Send">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Models Screen -->
+      <div id="models-screen" class="tab-content">
+        <div class="screen-header">
+          <h2 class="screen-title">Models</h2>
+          <p class="screen-subtitle">Choose your AI model</p>
+        </div>
+        <div class="models-container" id="modelsContainer">
+          <div class="model-search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" class="search-input" placeholder="Search models..." id="modelSearch">
+          </div>
+          <div class="model-category">
+            <h3 class="category-title">Free Models</h3>
+            <div id="freeModels"></div>
+          </div>
+          <div class="model-category">
+            <h3 class="category-title">Premium Models</h3>
+            <div id="premiumModels"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Screen -->
+      <div id="settings-screen" class="tab-content">
+        <div class="screen-header">
+          <h2 class="screen-title">Settings</h2>
+        </div>
+        <div class="settings-container">
+          <div class="settings-profile">
+            <div class="profile-avatar" id="profileAvatar">U</div>
+            <div class="profile-info">
+              <h3 id="profileName">User</h3>
+              <p id="profileEmail">user@email.com</p>
+            </div>
+            <button class="glass-icon-btn" id="signOutBtn" title="Sign out">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </button>
+          </div>
+
+          <div class="settings-section">
+            <h3 class="settings-section-title">API Configuration</h3>
+            <div class="setting-item">
+              <div class="setting-left">
+                <label>OpenAI API Key</label>
+                <span class="setting-desc">For GPT-4, GPT-3.5 models</span>
+              </div>
+              <input type="password" class="setting-input" id="openaiKey" placeholder="sk-...">
+            </div>
+            <div class="setting-item">
+              <div class="setting-left">
+                <label>Anthropic API Key</label>
+                <span class="setting-desc">For Claude models</span>
+              </div>
+              <input type="password" class="setting-input" id="anthropicKey" placeholder="sk-ant-...">
+            </div>
+            <div class="setting-item">
+              <div class="setting-left">
+                <label>Google AI Key</label>
+                <span class="setting-desc">For Gemini models</span>
+              </div>
+              <input type="password" class="setting-input" id="geminiKey" placeholder="AI...">
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3 class="settings-section-title">Appearance</h3>
+            <div class="setting-item">
+              <div class="setting-left">
+                <label>Theme</label>
+                <span class="setting-desc">Choose your preferred theme</span>
+              </div>
+              <div class="theme-selector">
+                <button class="theme-opt active" data-theme="dark" aria-label="Dark theme">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="theme-opt" data-theme="light" aria-label="Light theme">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+                <button class="theme-opt" data-theme="ocean" aria-label="Ocean theme">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h2a10 10 0 0110-10v2a8 8 0 00-8 8H2z"/><path d="M12 2a10 10 0 0110 10h-2a8 8 0 00-8-8V2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3 class="settings-section-title">About</h3>
+            <div class="setting-item about-item">
+              <div class="setting-left">
+                <label>Version</label>
+                <span class="setting-desc">v1.0.0</span>
+              </div>
+            </div>
+            <div class="setting-item about-item">
+              <div class="setting-left">
+                <label>OPEN CODE Mobile</label>
+                <span class="setting-desc">Powered by OPEN CODE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Tab Bar -->
+    <nav id="tab-bar" class="tab-bar-hidden">
+      <div class="tab-bar-glass">
+        <button class="tab-btn active" data-tab="chat">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span>Chat</span>
+        </button>
+        <button class="tab-btn" data-tab="models">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Models</span>
+        </button>
+        <button class="tab-btn" data-tab="settings">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span>Settings</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Profile Panel -->
+    <div id="profile-panel" class="panel-hidden">
+      <div class="panel-backdrop" id="profileBackdrop"></div>
+      <div class="profile-panel-glass">
+        <div class="panel-header">
+          <h2>Profile</h2>
+          <button id="closeProfile" class="glass-icon-btn">&times;</button>
+        </div>
+        <div class="profile-content">
+          <div class="profile-avatar-lg" id="profileAvatarLg">U</div>
+          <h3 id="profileNameLg">User</h3>
+          <p id="profileEmailLg" class="profile-email-text">user@email.com</p>
+          <button class="auth-btn google" id="signOutPanelBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+          </button>
         </div>
       </div>
     </div>
   </div>
 
   <script src="js/animations.js"></script>
+  <script src="js/models.js"></script>
   <script src="js/chat.js"></script>
   <script src="js/app.js"></script>
 </body>

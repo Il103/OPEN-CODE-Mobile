@@ -1,26 +1,28 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="512" height="512" rx="100" fill="#0a0a1a"/>
-  <rect x="60" y="60" width="392" height="392" rx="80" fill="url(#glass)" fill-opacity="0.1" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+  <rect x="40" y="40" width="432" height="432" rx="80" fill="url(#glass)" fill-opacity="0.08" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
   <defs>
     <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.15)"/>
+      <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
       <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
     </linearGradient>
-    <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6c5ce7"/>
-      <stop offset="100%" stop-color="#00cec9"/>
-    </linearGradient>
   </defs>
-  <g transform="translate(139, 85) scale(1.8)">
-    <path d="M18 30H6V18H18V30Z" fill="url(#logo-grad)"/>
-    <path d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z" fill="rgba(255,255,255,0.3)"/>
-    <path d="M48 30H36V18H48V30Z" fill="url(#logo-grad)"/>
-    <path d="M36 30H48V12H36V30ZM54 36H36V42H30V6H54V36Z" fill="rgba(255,255,255,0.3)"/>
-    <path d="M84 24V30H66V24H84Z" fill="url(#logo-grad)"/>
-    <path d="M84 24H66V30H84V36H60V6H84V24ZM66 18H78V12H66V18Z" fill="rgba(255,255,255,0.3)"/>
-    <path d="M108 36H96V18H108V36Z" fill="url(#logo-grad)"/>
-    <path d="M108 12H96V36H90V6H108V12ZM114 36H108V12H114V36Z" fill="rgba(255,255,255,0.3)"/>
+  <g transform="translate(102, 120)">
+    <path d="M48 80H16V48H48V80Z" fill="#CFCECD"/>
+    <path d="M48 32H16V80H48V32ZM64 96H0V16H64V96Z" fill="#656363"/>
+    <path d="M128 80H96V48H128V80Z" fill="#CFCECD"/>
+    <path d="M96 80H128V32H96V80ZM144 96H96V112H80V16H144V96Z" fill="#656363"/>
+    <path d="M224 64V80H176V64H224Z" fill="#CFCECD"/>
+    <path d="M224 64H176V80H224V96H160V16H224V64ZM176 48H208V32H176V48Z" fill="#656363"/>
+    <path d="M288 96H256V48H288V96Z" fill="#CFCECD"/>
+    <path d="M288 32H256V96H240V16H288V32ZM304 96H288V32H304V96Z" fill="#656363"/>
+    <path d="M384 80H336V48H384V80Z" fill="#CFCECD"/>
+    <path d="M384 32H336V80H384V96H320V16H384V32Z" fill="#211E1E"/>
+    <path d="M448 80H416V48H448V80Z" fill="#CFCECD"/>
+    <path d="M448 32H416V80H448V32ZM464 96H400V16H464V96Z" fill="#211E1E"/>
+    <path d="M528 80H496V48H528V80Z" fill="#CFCECD"/>
+    <path d="M528 32H496V80H528V32ZM544 96H480V16H528V0H544V96Z" fill="#211E1E"/>
+    <path d="M624 64V80H576V64H624Z" fill="#CFCECD"/>
+    <path d="M576 32V48H608V32H576ZM624 64H576V80H624V96H560V16H624V64Z" fill="#211E1E"/>
   </g>
-  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#logo-grad)" stroke-width="1" opacity="0.2"/>
-  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#logo-grad)" stroke-width="0.5" opacity="0.1"/>
 </svg>

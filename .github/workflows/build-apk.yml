@@ -70,21 +70,7 @@ jobs:
 
       - name: Build Release APK
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.release == 'true'
-        env:
-          ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
-          if [ -n "$ANDROID_KEYSTORE" ]; then
-            echo "$ANDROID_KEYSTORE" | base64 -d > android/app/keystore.jks
-            cat >> android/gradle.properties << EOF
-            RELEASE_STORE_FILE=keystore.jks
-            RELEASE_STORE_PASSWORD=$KEYSTORE_PASSWORD
-            RELEASE_KEY_ALIAS=$KEY_ALIAS
-            RELEASE_KEY_PASSWORD=$KEY_PASSWORD
-            EOF
-          fi
           cd android
           ./gradlew assembleRelease
 
@@ -109,15 +95,14 @@ jobs:
             
             ## Features
             - 🌊 **Liquid Glass UI** - Stunning glass morphism interface
-            - 🤖 **Multi-Model AI** - GPT-4, Claude 3, Gemini support
-            - ✨ **iOS 27 Animations** - Ultra-smooth message animations
-            - 📱 **Mobile Optimized** - Built for Android
-            - 🔒 **Privacy First** - Your API key stays on device
+            - 🤖 **Multi-Model AI** - GPT-4, Claude 3.5, Gemini 2.0 support
+            - 🔐 **Sign in with Google** - Like ChatGPT
+            - 📱 **Mobile Native** - Built for Android
+            - 🔒 **Privacy First** - Your API keys stay on device
             
             ## Installation
             Download the APK and install it on your Android device.
           files: |
             android/app/build/outputs/apk/debug/app-debug.apk
-            android/app/build/outputs/apk/release/app-release.apk
           draft: false
           prerelease: false

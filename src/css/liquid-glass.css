@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-blur: 20px;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --accent: #6c5ce7;
+  --accent-glow: rgba(108, 92, 231, 0.4);
+  --accent-2: #00cec9;
+  --accent-3: #fd79a8;
+  --bg-dark: #0a0a1a;
+  --user-bubble: rgba(108, 92, 231, 0.25);
+  --ai-bubble: rgba(255, 255, 255, 0.06);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+[data-theme="light"] {
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(26, 26, 46, 0.5);
+  --bg-dark: #f0f0f8;
+  --user-bubble: rgba(108, 92, 231, 0.15);
+  --ai-bubble: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="ocean"] {
+  --glass-bg: rgba(0, 150, 200, 0.1);
+  --glass-border: rgba(0, 200, 255, 0.15);
+  --accent: #00b4d8;
+  --accent-glow: rgba(0, 180, 216, 0.4);
+  --accent-2: #48cae4;
+  --accent-3: #90e0ef;
+  --bg-dark: #03045e;
+  --user-bubble: rgba(0, 180, 216, 0.2);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.glass-btn {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.glass-btn:active {
+  transform: scale(0.95);
+}
+
+.glass-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.glass-icon-btn:active {
+  transform: scale(0.9);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.glass-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.glass-input option {
+  background: #1a1a2e;
+  color: white;
+}
+
+#gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    #0a0a1a 0%,
+    #1a0a2e 25%,
+    #0a1a2e 50%,
+    #1a0a3e 75%,
+    #0a0a1a 100%
+  );
+  z-index: -2;
+}
+
+[data-theme="light"] #gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #f0f0f8 0%,
+    #e8e0f8 25%,
+    #e0e8f8 50%,
+    #f0e0f8 75%,
+    #f0f0f8 100%
+  );
+}
+
+[data-theme="ocean"] #gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #03045e 0%,
+    #023e8a 25%,
+    #0077b6 50%,
+    #0096c7 75%,
+    #03045e 100%
+  );
+}
+
+#glass-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: float-particle linear infinite;
+  pointer-events: none;
+}

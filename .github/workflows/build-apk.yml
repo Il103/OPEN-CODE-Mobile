@@ -1,0 +1,123 @@
+name: Build OPEN CODE Mobile APK
+
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Create a GitHub Release'
+        required: true
+        default: 'false'
+        type: boolean
+      version:
+        description: 'Version tag (e.g., v1.0.0)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Capacitor Init & Add Android
+        run: |
+          npx cap init "OPEN CODE Mobile" "com.opencode.mobile" --webDir src
+          npx cap add android
+
+      - name: Copy web assets
+        run: npx cap sync android
+
+      - name: Build Debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencode-mobile-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+      - name: Build Release APK
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release == 'true'
+        env:
+          ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          if [ -n "$ANDROID_KEYSTORE" ]; then
+            echo "$ANDROID_KEYSTORE" | base64 -d > android/app/keystore.jks
+            cat >> android/gradle.properties << EOF
+            RELEASE_STORE_FILE=keystore.jks
+            RELEASE_STORE_PASSWORD=$KEYSTORE_PASSWORD
+            RELEASE_KEY_ALIAS=$KEY_ALIAS
+            RELEASE_KEY_PASSWORD=$KEY_PASSWORD
+            EOF
+          fi
+          cd android
+          ./gradlew assembleRelease
+
+      - name: Upload Release APK
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencode-mobile-release
+          path: android/app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: warn
+
+      - name: Create Release
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version || 'v1.0.0' }}
+          name: "OPEN CODE Mobile ${{ github.event.inputs.version || 'v1.0.0' }}"
+          body: |
+            # OPEN CODE Mobile
+            
+            AI Coding Agent for Android with Liquid Glass UI ✨
+            
+            ## Features
+            - 🌊 **Liquid Glass UI** - Stunning glass morphism interface
+            - 🤖 **Multi-Model AI** - GPT-4, Claude 3, Gemini support
+            - ✨ **iOS 27 Animations** - Ultra-smooth message animations
+            - 📱 **Mobile Optimized** - Built for Android
+            - 🔒 **Privacy First** - Your API key stays on device
+            
+            ## Installation
+            Download the APK and install it on your Android device.
+          files: |
+            android/app/build/outputs/apk/debug/app-debug.apk
+            android/app/build/outputs/apk/release/app-release.apk
+          draft: false
+          prerelease: false
